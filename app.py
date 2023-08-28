@@ -38,7 +38,7 @@ if st.button('Отправить'):
     else:
         submissions = int(cookie_manager.get(cookie='submissions')) + 1
         # review = {'fio': fio, 'txt': txt, 'phone': phone, 'sklad': sklad, 'submission': submissions}
-        token = st.secrets['telegram_bot'],
+        token = '6418468990:AAE40OfsXj_CO_R9xMgu1mcVV7pyrWRlxyY'
         bot = telebot.TeleBot(token)
         chat_id = '-1001666738515'
         text = "ФИО: " + fio + "\nОтзыв: " + txt + "\nТелефон: " + phone + "\nСклад: " + sklad + "\nОтзывов у пользователя: " + str(submissions)
