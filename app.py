@@ -1,5 +1,6 @@
 import streamlit as st
 import io
+import os
 import datetime
 import extra_streamlit_components as stx
 import telebot
@@ -23,7 +24,7 @@ else:
     submissions = int(cookie_manager.get(cookie='submissions'))
     if submissions > 0:
         st.success('Спасибо, вы уже отправили отзыв', icon="✅")
-
+st.text(st.secrets['telegram_bot'])
 
 fio = st.text_input('ФИО (необязательно)', '')
 txt = st.text_area('Отзыв','')
@@ -38,7 +39,7 @@ if st.button('Отправить'):
     else:
         submissions = int(cookie_manager.get(cookie='submissions')) + 1
         # review = {'fio': fio, 'txt': txt, 'phone': phone, 'sklad': sklad, 'submission': submissions}
-        token = '6418468990:AAE40OfsXj_CO_R9xMgu1mcVV7pyrWRlxyY'
+        token = st.secrets['telegram_bot'],
         bot = telebot.TeleBot(token)
         chat_id = '-1001666738515'
         text = "ФИО: " + fio + "\nОтзыв: " + txt + "\nТелефон: " + phone + "\nСклад: " + sklad + "\nОтзывов у пользователя: " + str(submissions)
