@@ -24,7 +24,6 @@ else:
     submissions = int(cookie_manager.get(cookie='submissions'))
     if submissions > 0:
         st.success('Спасибо, вы уже отправили отзыв', icon="✅")
-st.text(st.secrets['telegram_bot'])
 
 fio = st.text_input('ФИО (необязательно)', '')
 txt = st.text_area('Отзыв','')
